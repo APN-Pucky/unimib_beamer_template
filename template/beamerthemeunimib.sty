@@ -11,7 +11,11 @@
 %\setbeamersize{frametitleleftmargin=5mm, frametitleverticalmargin=2mm}
 
 \definecolor{headgray}{gray}{0.5} % 0 = black, 1 = white, 0.5 = 50% gray
+% Define a custom color for the red background
+\definecolor{customred}{HTML}{9C102E} % 9c102e
+\setbeamercolor{mycolor}{fg=white,bg=customred}
 \setbeamercolor{headline}{fg=headgray}
+\setbeamercolor{title page}{fg=white,bg=customred}
 
 
 
@@ -24,6 +28,19 @@
       \includegraphics[width=\paperwidth]{template/resources/title-background.pdf}
     };
   \end{tikzpicture}
+    \begin{center}
+    \vspace*{0.5cm}
+    \hspace*{1.0cm}
+        \begin{beamercolorbox}[wd=\dimexpr\paperwidth-30mm\relax, center, colsep*=1pt,
+                           leftskip=5mm, rightskip=5mm, sep=1em]{title page}
+            \centering
+            {\usebeamerfont{title}\inserttitle\par}
+            \vspace{1cm}
+            {\usebeamerfont{author}\insertauthor\par}
+            \vspace{1cm}
+            {\usebeamerfont{date}\insertdate\par}
+        \end{beamercolorbox}
+    \end{center}
 }
 
 \setbeamertemplate{headline}{
@@ -45,15 +62,11 @@
 }
 
 
-% Define a custom color for the red background
-\definecolor{customred}{HTML}{9C102E} % 9c102e
-\setbeamercolor{mycolor}{fg=white,bg=customred}
-
 \setbeamertemplate{frametitle}{
     \vspace{-2mm}
     \hspace{7.5mm}
      \begin{beamercolorbox}[
-        wd=\dimexpr\paperwidth-15mm\relax,
+        wd=\dimexpr\paperwidth-9.5mm\relax,
         ht=2.5ex,
         dp=1.125ex]{mycolor}%
         \centering
