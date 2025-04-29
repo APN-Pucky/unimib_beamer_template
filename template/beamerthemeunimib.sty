@@ -1,0 +1,63 @@
+\usepackage{xcolor}  % To define colors using hex codes
+%% ============ Margins, spacing, etc ============
+\setbeamersize{text margin right=2mm, text margin left=7.50mm}  % text margin
+% switch of the navigation symbols
+\setbeamertemplate{navigation symbols}{}
+% Modify the frame title margins
+%\setbeamersize{frametitleleftmargin=5mm, frametitleverticalmargin=2mm}
+
+\setbeamertemplate{title page}{
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{template/resources/title-background.pdf}}
+
+    \begin{center}
+        \vspace*{3cm}
+        {\Huge \inserttitle\par}
+        \vspace{1cm}
+        {\large \insertauthor\par}
+        \vspace{1cm}
+        {\small \insertdate\par}
+    \end{center}
+    \usebackgroundtemplate{} % Reset background after title page
+}
+
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1ex,rightskip=1ex]{headline}
+      \hfill%
+      \usebeamercolor[fg]{page number in headline}%
+      \usebeamerfont{page number in headline}%
+      \insertframenumber{}\,/\,\inserttotalframenumber
+    \end{beamercolorbox}%
+  }%
+}
+
+% Define a custom color for the red background
+\definecolor{customred}{HTML}{9C102E} % 9c102e
+
+\setbeamercolor{mycolor}{fg=white,bg=customred}
+
+\setbeamertemplate{frametitle}{
+    \vskip4mm
+     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mycolor}%
+            \usebeamerfont{frametitle}\insertframetitle
+        \end{beamercolorbox}
+%        \begin{beamercolorbox}[colsep=1pt, 
+%                          rounded=true, 
+%                          shadow=true, 
+%                          %bg=customred,  % Hex color or color name for the background
+%                          fg=white,   % White font color
+%                          left=5mm, 
+%                          right=5mm, 
+%                          top=2mm, 
+%                          bottom=2mm]{frametitle}
+%    \end{beamercolorbox}
+ %   \color{black}
+ %   \bfseries
+ %   \insertframetitle
+ %   \par\vskip-6pt\hrulefill
+}
+
+
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{template/resources/content-background.pdf}}

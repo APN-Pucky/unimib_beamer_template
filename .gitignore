@@ -1,0 +1,36 @@
+# LaTeX intermediate and output files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*.nav
+*.snm
+*.synctex.gz
+*.fdb_latexmk
+*.blg
+*.bbl
+*.bcf
+*.run.xml
+
+# PDF and other output
+*.pdf
+*.ps
+
+# Editors and OS-specific files
+*.swp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Latexmk or TeXShop specific
+latex.out/
+latex.log/
