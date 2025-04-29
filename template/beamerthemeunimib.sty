@@ -1,4 +1,8 @@
 \usepackage{xcolor}  % To define colors using hex codes
+
+% Tikz package
+\usepackage{tikz}
+
 %% ============ Margins, spacing, etc ============
 \setbeamersize{text margin right=2mm, text margin left=7.50mm}  % text margin
 % switch of the navigation symbols
@@ -6,40 +10,53 @@
 % Modify the frame title margins
 %\setbeamersize{frametitleleftmargin=5mm, frametitleverticalmargin=2mm}
 
-\setbeamertemplate{title page}{
-    \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{template/resources/title-background.pdf}}
+\definecolor{headgray}{gray}{0.5} % 0 = black, 1 = white, 0.5 = 50% gray
+\setbeamercolor{headline}{fg=headgray}
 
-    \begin{center}
-        \vspace*{3cm}
-        {\Huge \inserttitle\par}
-        \vspace{1cm}
-        {\large \insertauthor\par}
-        \vspace{1cm}
-        {\small \insertdate\par}
-    \end{center}
-    \usebackgroundtemplate{} % Reset background after title page
+
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{template/resources/content-background.pdf}}
+
+\setbeamertemplate{title page}{
+      \begin{tikzpicture}[remember picture,overlay]
+    \node[above right,inner sep=0pt] at (current page.south west)
+    {
+      \includegraphics[width=\paperwidth]{template/resources/title-background.pdf}
+    };
+  \end{tikzpicture}
 }
 
 \setbeamertemplate{headline}{
-  \leavevmode%
-  \hbox{%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1ex,rightskip=1ex]{headline}
-      \hfill%
+  \vspace{2mm}
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex]{headline}
+    \hbox to \paperwidth{
+      \hspace{7.5mm} % Left margin
+      \usebeamercolor[fg]{headline}%
+      \usebeamerfont{headline}%
+      \insertshorttitle%
+      \hfill
       \usebeamercolor[fg]{page number in headline}%
       \usebeamerfont{page number in headline}%
-      \insertframenumber{}\,/\,\inserttotalframenumber
-    \end{beamercolorbox}%
-  }%
+      \insertframenumber{}\,/\,\inserttotalframenumber%
+      \hspace{2.0mm} % Right margin
+    }
+  \end{beamercolorbox}
 }
+
 
 % Define a custom color for the red background
 \definecolor{customred}{HTML}{9C102E} % 9c102e
-
 \setbeamercolor{mycolor}{fg=white,bg=customred}
 
 \setbeamertemplate{frametitle}{
-    \vskip4mm
-     \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mycolor}%
+    \vspace{-2mm}
+    \hspace{7.5mm}
+     \begin{beamercolorbox}[
+        wd=\dimexpr\paperwidth-15mm\relax,
+        ht=2.5ex,
+        dp=1.125ex]{mycolor}%
+        \centering
             \usebeamerfont{frametitle}\insertframetitle
         \end{beamercolorbox}
 %        \begin{beamercolorbox}[colsep=1pt, 
@@ -59,5 +76,3 @@
 }
 
 
-
-\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{template/resources/content-background.pdf}}
